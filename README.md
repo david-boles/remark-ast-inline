@@ -4,12 +4,12 @@ An experimental package for adding nodes and values to a abstract syntax tree fr
 # Usage
 ## Import
 ```javascript
-import rae, { OPERATIONS } from 'remark-ast-express'
+import rai from 'remark-ast-express'
 ```
 
 ## Configure
 ```javascript
-const md = rae({
+const md = rai({
   converter // Optional
 })
 
