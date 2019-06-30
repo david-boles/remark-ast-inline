@@ -1,2 +1,2 @@
-# remark-ast-templating
-An experimental package for adding nodes and values to a mdast from template strings.
+# remark-ast-express
+An experimental package for adding nodes and values to a abstract syntax tree from template strings, via a unified parser of the kind exposed by remark.
