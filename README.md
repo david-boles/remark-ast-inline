@@ -1,4 +1,4 @@
-# remark-ast-express
+# remark-ast-inline
 An experimental package for adding nodes and values to a abstract syntax tree from template expressions, via a [unified](https://github.com/unifiedjs/unified) parser of the [kind exposed by remark](https://github.com/remarkjs/remark/tree/master/packages/remark-parse#extending-the-parser).
 
 # Usage
@@ -18,11 +18,11 @@ function converter(value) {
 }
 ```
 
-The converter function is called (if present) with all the expressions that would be inserted into your template string. They can return either an [unist](https://github.com/syntax-tree/unist) node (an object with a `type` field containing a string) to later be inserted into the AST or value to be inserted into the string. For example, to make this package completely useless:
+The converter function is called (if present) with all the expressions that would be inserted into your template string. It can return either an [unist](https://github.com/syntax-tree/unist) node (an object with a `type` field containing a string) to later be inserted into the AST or a value to be inserted into the string. For example, to make this package completely useless:
 
 ```javascript
 function converter(value) {
-  return String(value) // Can't just be `return value` or nodes might still be inserted.
+  return String(value) // Can't just be `return value` or nodes would still be inserted.
 )
 ```
 
