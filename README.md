@@ -6,6 +6,7 @@ An experimental package for adding nodes and values to a abstract syntax tree fr
 ```javascript
 import rae, { OPERATIONS } from 'remark-ast-express'
 ```
+
 ## Configure
 ```javascript
 const md = rae({
@@ -23,4 +24,27 @@ The converter function is called with all the expressions that would be inserted
 function converter(value) {
   return String(value) // Can't just be `return value` or nodes might still be inserted.
 )
+```
+
+## Process Text
+```javascript
+let { string, plugin } = md`\
+# This is some markdown...
+I'm going to insert a value into the AST riiight ${"foobar"}here.
+`
+
+// Standard remark example
+var remark = require('remark')
+var recommended = require('remark-preset-lint-recommended')
+var html = require('remark-html')
+var report = require('vfile-reporter')
+ 
+remark()
+  .use(recommended)
+  .use(html)
+  .use(plugin) // The plugin output above should be last
+  .process(string, function(err, file) { // The exact string output above should be processed
+    console.error(report(err || file))
+    console.log(String(file))
+  })
 ```
