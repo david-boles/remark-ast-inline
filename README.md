@@ -18,7 +18,7 @@ function converter(value) {
 }
 ```
 
-The converter function is called with all the expressions that would be inserted into your template string (the default is above). They can return either an [unist](https://github.com/syntax-tree/unist) node (an object with a `type` field containing a string) to later be inserted into the AST or value to be inserted into the string. For example, to make this package completely useless:
+The converter function is called (if present) with all the expressions that would be inserted into your template string. They can return either an [unist](https://github.com/syntax-tree/unist) node (an object with a `type` field containing a string) to later be inserted into the AST or value to be inserted into the string. For example, to make this package completely useless:
 
 ```javascript
 function converter(value) {
@@ -33,18 +33,10 @@ let { string, plugin } = md`\
 I'm going to insert a value into the AST riiight ${"foobar"}here.
 `
 
-// Standard remark example
-var remark = require('remark')
-var recommended = require('remark-preset-lint-recommended')
-var html = require('remark-html')
-var report = require('vfile-reporter')
+import remark from 'remark'
  
-remark()
-  .use(recommended)
-//.use(html) Probably can't use standard compilers, the AST is no longer a mdast
-  .use(plugin) // The plugin output above should be last
-  .process(string, function(err, file) { // The exact string output above should be processed
-    console.error(report(err || file))
-    console.log(String(file))
-  })
+let tree = remark()
+  .use(...others...)
+  .use(plugin) // The plugin returned above should be last
+  .parse(string) // The exact(!) string returned above
 ```
