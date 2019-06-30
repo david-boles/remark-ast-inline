@@ -31,6 +31,11 @@ function converter(value) {
 let { string, plugin } = md`\
 # This is some markdown...
 I'm going to insert a value into the AST riiight ${"foobar"}here.
+
+${{
+  type: 'strong',
+  children: [{type: 'text', value: 'alpha'}]
+}}
 `
 
 import remark from 'remark'
