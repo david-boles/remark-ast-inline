@@ -28,13 +28,13 @@ function converter(value) {
 
 ## Process Text
 ```javascript
-let { string, plugin } = md`\
+let { string, inserter } = md`\
 # This is some markdown...
 I'm going to insert a value into the AST riiight ${"foobar"}here.
 
 ${{
   type: 'strong',
-  children: [{type: 'text', value: 'alpha'}]
+  children: [{type: 'text', value: 'not here'}]
 }}
 `
 
@@ -45,3 +45,7 @@ let tree = remark()
   .use(plugin) // The plugin returned above should be last
   .parse(string) // The exact(!) string returned above
 ```
+TODO
+
+# WTF? Why?
+Well, this gives you a nice(ish) syntax in vanilla Javascript for programmatically inserting nodes into the AST inline; which might be useful...? I'm planning to use it to implement a React/JS+Markdown website templating framework; it was the least awkward (maybe relatively OK?) way to hack something together that I liked more than the alternatives (e.g. [MDX](https://mdxjs.com/)).
