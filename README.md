@@ -41,7 +41,7 @@ var report = require('vfile-reporter')
  
 remark()
   .use(recommended)
-  .use(html)
+//.use(html) Probably can't use standard compilers, the AST is no longer a mdast
   .use(plugin) // The plugin output above should be last
   .process(string, function(err, file) { // The exact string output above should be processed
     console.error(report(err || file))
