@@ -4,7 +4,7 @@ function isNode(value) {
 }
 
 // Generates a random, reasonably short string that does not occur anywhere else in the given string.
-const INITIAL_LENGTH = 8
+const INITIAL_LENGTH = 4
 const VALID_CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 function buildPrefix(string) {
   let prefix = ''
@@ -12,7 +12,7 @@ function buildPrefix(string) {
 
   while(string.indexOf(prefix) != -1) {
     while(prefix.length < targetLength) {
-      prefix += VALID_CHARS.charAt(Math.random(0, VALID_CHARS.length));
+      prefix += VALID_CHARS.charAt(Math.random() * (VALID_CHARS.length));
     }
     targetLength = targetLength * 2 // Checking if the string contains it could take awhile, grow exponentially.
   }
