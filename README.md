@@ -160,3 +160,6 @@ Or, with no converter:
 
 # WTF? Why?
 Well, this gives you a nice(ish) syntax in vanilla Javascript for programmatically inserting nodes into the AST inline; which might be useful...? I'm planning to use it to implement a React/JS+Markdown website templating framework; it was the least awkward (maybe relatively OK?) way to hack something together that I liked more than the alternatives (e.g. [MDX](https://mdxjs.com/)).
+
+# How?
+The code inserts tokens of the form `<[prefix]:[index]>` into the string, where the prefix is a random alphabetic (upper and lower) string that occurs nowhere else in the string (same across the tokens) and the index corresponds to which node should be inserted there. A `prefix` string and `nodes` array fields are included in the tag function output. 
