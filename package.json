@@ -1,0 +1,30 @@
+{
+  "name": "remark-ast-inline",
+  "version": "0.0.0",
+  "description": "An experimental package for adding nodes and values to a mdast from template strings. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/david476/remark-ast-inline.git"
+  },
+  "keywords": [
+    "remark",
+    "plugin",
+    "unified",
+    "markdown",
+    "template"
+  ],
+  "author": "David Boles",
+  "license": "0BSD",
+  "bugs": {
+    "url": "https://github.com/david476/remark-ast-inline/issues"
+  },
+  "homepage": "https://github.com/david476/remark-ast-inline#readme",
+  "type": "module",
+  "devDependencies": {
+    "remark": "^10.0.1"
+  }
+}
